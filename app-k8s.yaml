@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka-client-deployment
+  labels:
+    app: kafka-client
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kafka-client
+  template:
+    metadata:
+      labels:
+        app: kafka-client
+    spec:
+      containers:
+        - name: kafka-client
+          imagePullPolicy: IfNotPresent
+          image: alvarobacelar/kafka-client:latest
+          env:
+            - name: KAFKA_SERVER
+              value: "my-cluster-kafka-bootstrap:9092"
+          ports:
+            - containerPort: 8081
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: kafka-client
+  name: kafka-client-srv
+spec:
+  ports:
+    - port: 8081
+      protocol: TCP
+      targetPort: 8081
+  selector:
+    app: kafka-client
+  type: LoadBalancer
