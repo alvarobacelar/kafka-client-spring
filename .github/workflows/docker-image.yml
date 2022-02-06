@@ -22,4 +22,4 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag alvarobacelar/kafka-client:$(date +%s)
     - name: Docker push
-      run: docker push ${{secrets.DOCKER_USER}}/kafka-client:$(date +%s)
+      run: docker push ${{secrets.DOCKER_USER}}/kafka-client
