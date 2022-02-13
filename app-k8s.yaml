@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kafka-client-deployment
+  annotations:
+    example.io/metric_path: /actuator/prometheus
   labels:
     app: kafka-client
 spec:
@@ -11,12 +13,14 @@ spec:
       app: kafka-client
   template:
     metadata:
+      annotations:
+        example.io/metric_path: /actuator/prometheus
       labels:
         app: kafka-client
     spec:
       containers:
         - name: kafka-client
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           image: alvarobacelar/kafka-client:ubuntu
           env:
             - name: KAFKA_SERVER

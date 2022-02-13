@@ -14,7 +14,7 @@ public class Consumer {
     @KafkaListener(topics = "${topic.name}")
     public void listen(ConsumerRecord<String, String> payload, Acknowledgment ack) throws InterruptedException {
         // faz algum processamento aqui
-        Thread.sleep(50);
+//        Thread.sleep(5);
         logger.info(String.format("==> Consumed message %s, offset %s, partition %s", payload.value(), payload.offset(), payload.partition()));
         ack.acknowledge();
     }
