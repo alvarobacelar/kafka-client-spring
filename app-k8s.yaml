@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: kafka-client
-          imagePullPolicy: Always
+          imagePullPolicy: "Always"
           image: alvarobacelar/kafka-client:ubuntu
           env:
             - name: KAFKA_SERVER
