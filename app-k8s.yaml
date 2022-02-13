@@ -21,7 +21,7 @@ spec:
       containers:
         - name: kafka-client
           imagePullPolicy: "Always"
-          image: alvarobacelar/kafka-client:ubuntu
+          image: alvarobacelar/kafka-client:fetch_min_chang
           env:
             - name: KAFKA_SERVER
               value: "my-cluster-kafka-bootstrap:9092"
