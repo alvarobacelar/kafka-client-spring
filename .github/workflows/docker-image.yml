@@ -20,6 +20,6 @@ jobs:
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag alvarobacelar/kafka-client:fetch_min_chang
+      run: docker build . --file Dockerfile --tag alvarobacelar/kafka-client:manual_imediate
     - name: Docker push
-      run: docker push alvarobacelar/kafka-client:fetch_min_chang
+      run: docker push alvarobacelar/kafka-client:manual_imediate
