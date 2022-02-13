@@ -24,7 +24,7 @@ public class Producer {
     }
 
     public void sendMessage(String topic, String message){
-        for (int i=0; i < 100000; i++){
+        for (int i=0; i < 1000000; i++){
             ProducerRecord<String, String> producerRecord = new ProducerRecord<>(topic, message);
             producerRecord.headers().add(new RecordHeader("valor", "aqui o valor".getBytes()));
 
