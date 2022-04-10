@@ -10,10 +10,10 @@ Or, if you want running in Kubernet cluster, you can use the file ```app-k8s.yam
 ```
 kubectl apply -f app-k8s.yaml
 ```
-This file will be pull image from my docker hub ```alvarobacelar/kafka-client``` 
+This file will be pulling image from my docker hub ```alvarobacelar/kafka-client``` 
 
 ### Monitoring
-You can monitoring this app using Prometheus and Grafana. When you up this app will be expose an monitoring endpoint. 
+You can monitoring this app using Prometheus and Grafana. When you up this app will be expose a monitoring endpoint.
 ```
 <ip.app>:8081/actuator/prometheus
 ```
